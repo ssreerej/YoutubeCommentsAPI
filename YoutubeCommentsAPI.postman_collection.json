@@ -1,0 +1,174 @@
+{
+	"info": {
+		"_postman_id": "fcc901ae-31d0-4504-afac-20ec316be1f7",
+		"name": "YoutubeCommentsAPI",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "43975838",
+		"_collection_link": "https://sreerej-7626945.postman.co/workspace/sreerej's-Workspace~1a119bd0-476c-4446-8017-0365171a7050/collection/43975838-fcc901ae-31d0-4504-afac-20ec316be1f7?action=share&source=collection_link&creator=43975838"
+	},
+	"item": [
+		{
+			"name": "GetComments",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "PostComments",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"postId\": \"a1b2c3d4-e5f6-7890-abcd-ef1234567890\",\r\n  \"userId\": \"11112222-3333-4444-aaaa-bbbbccccdddd\",\r\n  \"comment\": \"First!\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/v1/comments/post",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"comments",
+						"post"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ReplyComment",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"commentId\": \"26b5fe10-5a16-4d98-9d57-d909ba0f87aa\",\r\n    \"userId\": \"11112222-3333-4444-bbbb-bbbbccccdddd\",\r\n    \"comment\": \"I hate these types of comments!\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/v1/comments/reply",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"comments",
+						"reply"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "EditRecentComment",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"postId\": \"a1b2c3d4-e5f6-7890-abcd-ef1234567890\",\r\n  \"commentId\": \"b5dc9fde-5a96-41d7-bd96-6682290b2602\",\r\n  \"userId\": \"11112222-3333-4444-aaaa-bbbbccccdddd\",\r\n  \"newComment\": \"Good content\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/v1/comments/edit",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"comments",
+						"edit"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DeleteRecentComment",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"postId\": \"a1b2c3d4-e5f6-7890-abcd-ef1234567890\",\r\n  \"commentId\": \"b5dc9fde-5a96-41d7-bd96-6682290b2602\",\r\n  \"userId\": \"11112222-3333-4444-aaaa-bbbbccccdddd\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/v1/comments/delete",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"comments",
+						"delete"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "InteractComment",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"commentId\": \"fcb616a9-6863-4a6e-8dff-a0c3127052b8\",\r\n    \"userId\": \"11112222-3333-4444-bbbb-bbbbccccdddd\",\r\n    \"interactionType\": \"like\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/v1/comments/interact",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"comments",
+						"interact"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

@@ -1,0 +1,30 @@
+{
+  "name": "youtubecommentsapi",
+  "version": "1.0.0",
+  "description": "an API for youtube comments interaction",
+  "main": "index.ts",
+  "scripts": {
+    "start": "npx ts-node index.ts",
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/ssreerej/YoutubeCommentsAPI.git"
+  },
+  "author": "ssreerej",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ssreerej/YoutubeCommentsAPI/issues"
+  },
+  "homepage": "https://github.com/ssreerej/YoutubeCommentsAPI#readme",
+  "dependencies": {
+    "cassandra-driver": "^4.8.0",
+    "dotenv": "^16.5.0",
+    "express": "^5.1.0",
+    "ts-node": "^10.9.2",
+    "uuid": "^11.1.0"
+  },
+  "devDependencies": {
+    "@types/express": "^5.0.1"
+  }
+}
