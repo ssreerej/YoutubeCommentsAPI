@@ -1,0 +1,69 @@
+-- Create Keyspace
+CREATE KEYSPACE IF NOT EXISTS youtube
+WITH replication = {
+  'class' 'NetworkTopologyStrategy',
+  'replication_factor' 3
+}
+AND tablets = { 'enabled' false };
+
+-- Use Keyspace
+USE youtube;
+
+-- Table comments
+CREATE TABLE IF NOT EXISTS comments (
+  postId UUID,
+  commentId UUID,
+  userId UUID,
+  comment TEXT,
+  createdDate TIMESTAMP,
+  PRIMARY KEY (postId, createdDate, commentId)
+) WITH CLUSTERING ORDER BY (createdDate DESC);
+
+-- Table replies
+CREATE TABLE IF NOT EXISTS replies (
+  commentId UUID,
+  replyId UUID,
+  userId UUID,
+  reply TEXT,
+  createdDate TIMESTAMP,
+  PRIMARY KEY (commentId, createdDate, replyId)
+) WITH CLUSTERING ORDER BY (createdDate ASC);
+
+-- Table user_comments
+CREATE TABLE IF NOT EXISTS user_comments (
+  userId UUID,
+  createdDate TIMESTAMP,
+  commentId UUID,
+  postId UUID,
+  comment TEXT,
+  PRIMARY KEY (userId, createdDate, commentId)
+) WITH CLUSTERING ORDER BY (createdDate DESC);
+
+-- Table comment_likes (using COUNTER)
+CREATE TABLE IF NOT EXISTS comment_likes (
+  commentId UUID PRIMARY KEY,
+  likes COUNTER
+);
+
+-- Table comment_interactions
+CREATE TABLE IF NOT EXISTS comment_interactions (
+  commentId UUID PRIMARY KEY,
+  likes COUNTER,
+  dislikes COUNTER
+);
+
+-- Table reply_interactions
+CREATE TABLE IF NOT EXISTS reply_interactions (
+  replyId UUID PRIMARY KEY,
+  likes COUNTER,
+  dislikes COUNTER
+);
+
+-- Table comment_user_interactions
+CREATE TABLE IF NOT EXISTS comment_user_interactions (
+  commentId UUID,
+  userId UUID,
+  interactionType TEXT,  -- 'like' or 'dislike'
+  interactedAt TIMESTAMP,
+  PRIMARY KEY (commentId, userId)
+);
